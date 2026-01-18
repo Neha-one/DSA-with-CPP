@@ -4,12 +4,12 @@ using namespace std;
 
 int main()
 {
-    int arr[] = {14, 3, 8, 35, 12};
+    int arr[] = {14, 3, 8, 35};
     int n = sizeof(arr) / 4;
     int square[n];
     for (int i = 0; i < n; i++)
     {
-        square[n] = arr[i] * arr[i];
-        cout << square[n]<<endl;
+        square[i] = arr[i] * arr[i]* arr[i];
+        cout << square[i] << " ";
     }
 }

@@ -8,6 +8,7 @@ int main()
     // int mx = arr[0];
     //OR
     int mx = INT16_MIN;
+    // cout<<mx;
     for (int i = 1; i < n; i++)
     {
 

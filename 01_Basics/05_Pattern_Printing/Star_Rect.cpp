@@ -26,8 +26,7 @@ int main()
 
     // USING LOOP:-    loop for rows & cols.
 
-  
-    int n;
+      int n;
     cout << "entre number of cols: ";
     cin >> n;
     // Outer loop = vertical movement

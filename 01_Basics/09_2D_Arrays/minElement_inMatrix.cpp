@@ -1,4 +1,4 @@
-// Ques: Find the maximum elements in a given matrix.
+// Ques: Find the minimum elements in a given matrix.
 #include <iostream>
 #include <climits>
 using namespace std;
@@ -10,7 +10,7 @@ int main()
     int m;
     cout << "enter m";
     cin >> m;
-    int maxNum = INT16_MIN;
+    int minNum = INT16_MAX;
     int arr[n][m];
     for (int i = 0; i < n; i++)
     {
@@ -24,11 +24,11 @@ int main()
     {
         for (int j = 0; j < m; j++)
         {
-            // if (maxNum < arr[i][j])
-            //     maxNum = arr[i][j];
+            // if (minNum < arr[i][j])
+            //     minNum = arr[i][j];
             // OR
-            maxNum = max(maxNum, arr[i][j]);
+            minNum = min(minNum, arr[i][j]);
         }
     }
-    cout << "maximum element is: " << maxNum;
+    cout << "minimun element is: " << minNum;
 };

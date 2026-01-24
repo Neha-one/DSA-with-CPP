@@ -25,6 +25,20 @@ int main()
         }
         cout << endl;
     }
+    cout << endl;
+
+    // 2nd method :
+    for (int row = 1; row <= n; row++)
+    {
+
+        for (int col = 1; col <= n; col++)
+        {
+            char ch = 'A' + col - 1;
+            cout << ch;
+        }
+        cout << endl;
+    }
+    cout << endl;
 
     // Ques:- Print the given pattern:
     /*
@@ -41,6 +55,19 @@ int main()
         }
         cout << endl;
     }
+    cout << endl;
+    // 2nd method:
+    for (int row = 1; row <= n; row++)
+    {
+        int st = 'A';
+        for (int col = 1; col <= n; col++)
+        {
+            char ch = 'A' + row - 1;
+            cout << ch << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
 
     // Ques:- Print the given pattern:-
     /*

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
+
 void printArray(int arr[], int size)
 {
   cout << "printing the array" << endl;
@@ -9,6 +10,7 @@ void printArray(int arr[], int size)
   {
     cout << arr[i] << " ";
   }
+  cout<<endl;
   cout << "printing Done!" << endl;
 };
 

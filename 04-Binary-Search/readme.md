@@ -14,3 +14,8 @@
 ### 3. compare is mid greater than or less than the key,
 ### 4. if less than then take right side then apply from step : 2,
 ### 5. if greater than then take left side then apply from step : 3.
+
+## Note : pair: use to store two values together;
+### pair<int,int> p;
+### cout<<p.first;
+### cout<<p.second;

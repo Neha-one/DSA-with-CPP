@@ -61,7 +61,7 @@ int main()
   // cout << "first occurrence of " << key << " = " << firstOccurrence(arr, n, key) << endl;
   // cout << "Last occurrence of " << key << " = " << LastOccurrence(arr, n, key);
 
-  //pair use to store two value together ;
+  // pair use to store two value together ;
   pair<int, int> p;
   p.first = firstOccurrence(arr, n, key);
   p.second = LastOccurrence(arr, n, key);

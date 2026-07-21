@@ -1,28 +1,30 @@
 #include <iostream>
 using namespace std;
+
+int print()
+{
+}
 int main()
 {
-  int arr[] = {1, 2, 3, 4, 5};
-  int n = sizeof(arr) / sizeof(int);
-  int key = 5;
-  int s = 0;
-  int e = n - 1;
-  int mid = (s + (e - s) / 2);
+  int s = 1;
+  int e = 10;
+  int ans;
   while (s <= e)
   {
-    if (arr[mid] == key)
+    long long mid = s + (e - s) / 2;
+    if (mid * mid == 18)
     {
       cout << mid;
-      return 0;
     }
-    else if (arr[mid] < key)
+    else if (mid * mid < 18)
     {
+      ans = mid;
       s = mid + 1;
     }
     else
     {
       e = mid - 1;
     }
-    mid = (s + (e - s) / 2);
   }
+  cout << ans;
 }

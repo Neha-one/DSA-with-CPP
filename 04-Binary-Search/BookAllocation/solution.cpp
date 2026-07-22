@@ -1,30 +1,51 @@
 #include <iostream>
 using namespace std;
 
-int bookAllocation(int arr[])
+bool isPossible(int arr[], int n, int m, int mid)
 {
+  int student = 1;
+  int pageSum = 0;
+  for (int i = 0; i < n; i++)
+  {
+    if (pageSum + arr[i] <= mid)
+    {
+      pageSum += arr[i];
+    }
+    else
+    {
+      student++;
+      if (student > m || arr[i] > mid)
+      {
+        return false;
+      }
+      pageSum = arr[i];
+    }
+  }
+  return true;
+}
+
+int bookAllocation(int arr[], int n, int m)
+{
+  int totalPageSum = 0;
+  for (int i = 0; i < n; i++)
+  {
+    totalPageSum += arr[i];
+  }
   int s = 0;
-  int e = 100;
-  int sum = 0;
+  int e = totalPageSum;
   int ans;
   int mid = s + (e - s) / 2;
 
   while (s <= e)
   {
-    for (int i = 0; i < 4; i++)
+    if (isPossible(arr, n, m, mid))
     {
-      sum = sum + arr[i];
-
-      if (sum <= mid)
-      {
-        // i++;
-        s = mid + 1;
-      }
-      else if (sum > mid)
-      {
-        ans = mid;
-        e = mid - 1;
-      }
+      ans = mid;
+      e = mid - 1;
+    }
+    else
+    {
+      s = mid + 1;
     }
     mid = s + (e - s) / 2;
   }
@@ -34,7 +55,7 @@ int bookAllocation(int arr[])
 int main()
 {
   int arr[] = {10, 20, 30, 40};
-
-  cout << bookAllocation(arr);
-  return 0;
+  int n = sizeof(arr) / sizeof(int);
+  int m = 2;
+  cout << bookAllocation(arr, n, m);
 }

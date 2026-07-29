@@ -1,41 +1,41 @@
 #include <iostream>
 using namespace std;
-bool ispossible(int arr[], int n, int m, int mid)
+bool ispossible(int arr[], int k, int n, int mid)
 {
-  int student = 1;
-  int pageSum = 0;
+  int boradSum = 0;
+  int painter = 1;
   for (int i = 0; i < n; i++)
   {
-    if (pageSum + arr[i] <= mid)
+    if (boradSum + arr[i] <= mid)
     {
-      pageSum += arr[i];
+      boradSum += arr[i];
     }
     else
     {
-      student++;
-      if (student > m || arr[i] > mid)
+      painter++;
+      if (painter > k || arr[i] > mid)
       {
         return false;
       }
-      pageSum = arr[i];
+      boradSum = arr[i];
     }
   }
   return true;
 }
-int allocation(int arr[], int n, int m)
+int painterPartition(int arr[], int k, int n)
 {
-  int totalSum = 0;
+  int totalBoards = 0;
   for (int i = 0; i < n; i++)
   {
-    totalSum += arr[i];
+    totalBoards += arr[i];
   }
   int s = 0;
-  int e = totalSum;
+  int e = totalBoards;
   int mid = s + (e - s) / 2;
   int ans = 0;
   while (s <= e)
   {
-    if (ispossible(arr, n, m, mid))
+    if (ispossible(arr, k, n, mid))
     {
       ans = mid;
       e = mid - 1;
@@ -50,9 +50,8 @@ int allocation(int arr[], int n, int m)
 }
 int main()
 {
-  int arr[] = {1, 2, 3, 4, 5};
+  int arr[] = {5, 10, 15, 20};
+  int k = 2;
   int n = sizeof(arr) / sizeof(int);
-  int m = 3;
-  cout << allocation(arr, n, m);
-  return 0;
+  cout << painterPartition(arr, k, n);
 }

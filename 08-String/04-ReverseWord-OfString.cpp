@@ -7,7 +7,6 @@ void reverseWords(vector<char> &s)
 {
   // Step 1: Reverse complete string
   reverse(s.begin(), s.end());
-
   int start = 0;
 
   // Step 2: Reverse each word

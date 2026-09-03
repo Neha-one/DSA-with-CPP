@@ -1,58 +1,36 @@
 #include <iostream>
 using namespace std;
-bool ispossible(int arr[], int n, int m, int mid)
+void Print(char s, int n)
 {
-  int student = 1;
-  int pageSum = 0;
-  for (int i = 0; i < n; i++)
-  {
-    if (pageSum + arr[i] <= mid)
-    {
-      pageSum += arr[i];
-    }
-    else
-    {
-      student++;
-      if (student > m || arr[i] > mid)
-      {
-        return false;
-      }
-      pageSum = arr[i];
-    }
-  }
-  return true;
+  cout << "your max occuring character is " << s << " and " << n << " times";
 }
-int allocation(int arr[], int n, int m)
+void MaxCheck(string str, int len)
 {
-  int totalSum = 0;
-  for (int i = 0; i < n; i++)
+  int temp = 0;
+  char key;
+
+  for (int i = 0; i < len; i++)
   {
-    totalSum += arr[i];
-  }
-  int s = 0;
-  int e = totalSum;
-  int mid = s + (e - s) / 2;
-  int ans = 0;
-  while (s <= e)
-  {
-    if (ispossible(arr, n, m, mid))
+    int count = 0;
+    for (int j = 0; j < len; j++)
     {
-      ans = mid;
-      e = mid - 1;
+      if (str[i] == str[j])
+      {
+        count++;
+      }
     }
-    else
+    if (temp < count)
     {
-      s = mid + 1;
+      key = str[i];
+      temp = count;
     }
-    mid = s + (e - s) / 2;
   }
-  return ans;
+  Print(key, temp);
 }
 int main()
 {
-  int arr[] = {1, 2, 3, 4, 5};
-  int n = sizeof(arr) / sizeof(int);
-  int m = 3;
-  cout << allocation(arr, n, m);
+  string str = "soon";
+  int len = str.length();
+  MaxCheck(str, len);
   return 0;
 }

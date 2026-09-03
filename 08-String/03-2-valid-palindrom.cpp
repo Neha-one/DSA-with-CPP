@@ -19,6 +19,14 @@ bool CheckPalindrome(string result)
   }
   return true;
 }
+char toLowerCase(char ch)
+{
+  if ((ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9'))
+  {
+    return ch;
+  }
+  return ch - 'A' + 'a';
+}
 bool valid(char ch)
 {
   if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9'))
@@ -28,14 +36,6 @@ bool valid(char ch)
   return false;
 }
 
-char toLowerCase(char ch)
-{
-  if ((ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9'))
-  {
-    return ch;
-  }
-  return ch - 'A' + 'a';
-}
 bool isPalindrome(string s)
 {
   int len = s.length();

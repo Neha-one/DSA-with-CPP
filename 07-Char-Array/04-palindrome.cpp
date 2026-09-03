@@ -27,26 +27,29 @@ int main()
   int len = StringSize(name);
 
   char Oriname[10];
-  for (int i = 0; i<len; i++)
+  for (int i = 0; i < len; i++)
   {
     Oriname[i] = name[i];
   };
   reverseString(name, len);
-  cout << "Your reverse name is : " << name;
-  cout << endl;
+
+  cout << "Your reverse name is : " << name << endl;
   bool palindrome = true;
-  for (int i = 0; i < len;i++){
-    if(Oriname[i]!=name[i]){
+  for (int i = 0; i < len; i++)
+  {
+    if (Oriname[i] != name[i])
+    {
       palindrome = false;
       break;
     }
   }
-if(palindrome)    {
-      cout << "Yessss given name is PALINDROME.";
-    }
-    else
-    {
-      cout << "Nooo given name is not a PALINDROME.";
-    }
+  if (palindrome)
+  {
+    cout << "Yessss given name is PALINDROME.";
+  }
+  else
+  {
+    cout << "Nooo given name is not a PALINDROME.";
+  }
   return 0;
 }

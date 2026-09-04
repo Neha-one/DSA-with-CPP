@@ -4,19 +4,23 @@ using namespace std;
 
 char getMaxOccuringChar(string s)
 {
-  int freq[26] = {0};
-  for (char ch : s)
+  int arr[26] = {0};
+  for (int i = 0; i < s.length(); i++)
   {
-    freq[ch - 'a']++;
+    int number = 0;
+    number = s[i] - 'a';
+    arr[number]++;
+  }
+  {
   }
 
-  char maxChar = 'a';
-  int maxFreq = 0;
+  char maxChar;
+  int maxi = 0;
   for (int i = 0; i < 26; i++)
   {
-    if (freq[i] > maxFreq)
+    if (arr[i] > maxi)
     {
-      maxFreq = freq[i];
+      maxi = arr[i];
       maxChar = 'a' + i;
     }
   }
@@ -25,7 +29,9 @@ char getMaxOccuringChar(string s)
 
 int main()
 {
-  string s = "testsample";
+  cout << "Enter a string: ";
+  string s;
+  getline(cin, s);
   cout << getMaxOccuringChar(s) << endl;
   return 0;
 }

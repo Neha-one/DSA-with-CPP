@@ -9,7 +9,7 @@ string replaceString(string &s)
     if (s[i] == ' ')
     {
       s.replace(i, 1, "@20");
-      i += 2;
+      i += 2;  
     }
   }
   return s;

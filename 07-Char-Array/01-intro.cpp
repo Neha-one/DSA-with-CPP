@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstring>
 using namespace std;
 
 int main()
@@ -14,20 +13,17 @@ int main()
   int len = strlen(name1);
   cout << "Length of your name1 is: " << len << endl;
 
-  char name2[100];
+  // it will print value of ch but in int array it will print address.
+  char ch[5] = {'a', 'b', 'c', 'd'};
+  cout << ch;
 
-  cout << "Enter your name2: ";
-  cin.getline(name2, 100);
-
-  cout << "Your name2 is " << name2 << endl;
-
-  cout << "compare of both name1 and name2 string: " << strcmp(name1, name2) << endl;
-
-  char name3[100];
-  cout << "copying name3 from name1: ";
-  // strcpy(destination, source);
-  strcpy(name3, name1);
-  cout << "Your name3 is " << name3 << endl;
-
+  char name4[] = "neha";
+  char name5[5] = "neha";
+  char name6[] = {'m', 'a', 'n', 'i', '\0'};
+  char name7[5] = {'m', 'a', 'n', 'i', '\0'};
+  cout << name4 << endl;
+  cout << name5 << endl;
+  cout << name6 << endl;
+  cout << name7 << endl;
   return 0;
 }

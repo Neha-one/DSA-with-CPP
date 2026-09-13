@@ -15,7 +15,8 @@ void bubbleSort(int arr[], int n)
         swapped = true;
       }
     }
-    if(swapped == false){
+    if (swapped == false)
+    {
       break;
     }
   }

@@ -13,15 +13,15 @@ void func(int Mat[][3])
   cout << "1st row ptr: " << Mat + 1 << endl;
   cout << "2nd row ptr: " << Mat + 2 << endl;
 
-  //----values:------
+  //----values as address:------
   cout << "values as address : " << endl;
 
   cout << "0th row value: " << *Mat << endl;
   cout << "1st row value: " << *(Mat + 1) << endl;
   cout << "2nd row value: " << *(Mat + 2) << endl;
 
-  //----values:------
-  cout << "values as address : " << endl;
+  //----real values:------
+  cout << "real values : " << endl;
 
   cout << "0th row value: " << *(*(Mat + 0) + 0) << endl;
   cout << "(0,1) value: " << *(*(Mat + 0) + 1) << endl;

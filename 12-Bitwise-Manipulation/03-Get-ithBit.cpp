@@ -3,7 +3,8 @@ using namespace std;
 int GetIthBit(int n, int i)
 {
   int bitMask = 1 << i;
-  if (!(n & bitMask))
+  // if (!(n & bitMask))
+  if (n & bitMask != 1)
     return 0;
 
   else

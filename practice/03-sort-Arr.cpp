@@ -35,7 +35,7 @@ void countingSort(int arr[], int n)
     int idx = arr[i];
     freq[idx]++;
   }
-  int j = n-1;
+  int j = n - 1;
   for (int i = 0; i <= maxVal; i++)
   {
     while (freq[i] != 0)

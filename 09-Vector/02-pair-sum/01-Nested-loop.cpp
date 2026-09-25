@@ -31,7 +31,7 @@ void pairSum(vector<int> v, int target)
 int main()
 {
   vector<int> v = {2, 7, 11, 15};
-  int target = 9;
+  int target = 18;
   pairSum(v, target);
   return 0;
 }

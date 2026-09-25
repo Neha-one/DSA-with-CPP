@@ -2,7 +2,10 @@
 using namespace std;
 void updateIthBit(int num, int i, int val)
 {
+  //---clear ith bit 
   num = num & ~(1 << i);
+
+  //---set given val to ith bit
   num = num | (val << i);
   cout << num << endl;
 }

@@ -5,6 +5,7 @@ using namespace std;
 void setMismtach(vector<int> nums)
 {
   sort(nums.begin(), nums.end());
+  
   int duplicate = -1, miss = -1;
   for (int i = 1; i < nums.size(); i++)
   {

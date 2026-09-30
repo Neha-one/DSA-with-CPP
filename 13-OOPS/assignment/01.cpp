@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 class Complex
 {
@@ -12,20 +12,19 @@ public:
   }
   void showNum()
   {
-    cout << real << "-" << img << "i" << endl;
+    cout << real << " + " << img << "i" << endl;
   }
-  void operator-(Complex &c2)
+  Complex operator*(Complex &c2)
   {
-    int resReal = this->real - c2.real;
-    int resImg = this->img - c2.img;
-    Complex c3(resReal, resImg);
-    c3.showNum();
+    return Complex((real * c2.real) - (img * c2.img), (img * c2.real) + (c2.img * real));
   }
 };
+
 int main()
 {
   Complex c1(2, 3);
   Complex c2(1, 3);
-  c1 - c2;
+  Complex c3 = c1 * c2;
+  c3.showNum();
   return 0;
 }

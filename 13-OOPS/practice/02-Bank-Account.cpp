@@ -21,7 +21,7 @@ public:
   {
     balance += money;
   }
-  int withdraw(int amountNeed)
+  void withdraw(int amountNeed)
   {
     if (balance >= amountNeed)
     {
@@ -41,7 +41,7 @@ public:
 int main()
 {
   BankAccount ac1(1234, "Neha", 30);
-  ac1.deposite(10);
+  ac1.deposit(10);
   cout << ac1.getBalance();
   return 0;
 }

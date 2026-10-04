@@ -65,29 +65,51 @@ using namespace std;
 //   }
 //   return ans;
 // }
-//--------method 4: RECURSION:
-string removeString(string str, string ans, int i, bool map[])
+// //--------method 4: RECURSION:
+// string removeString(string str, string ans, int i, bool map[])
+// {
+//   // base case:
+//   if (i == str.length())
+//   {
+//     return ans;
+//   }
+//   int idx = str[i] - 'a';
+//   if (map[idx] == false) // not added in ans
+//   {
+//     map[idx] = true;
+//     return removeString(str, ans + str[i], i + 1, map);
+//   }
+//   else
+//   {
+//     return removeString(str, ans, i + 1, map); // duplicate character
+//   }
+// }
+//--------method 4: RECURSION:  WITHOUT USING i.
+string removeString(string str, string ans, bool map[])
 {
   // base case:
-  if (i == str.length())
+  if (str.length() == 0)
   {
     return ans;
   }
-  int idx = str[i] - 'a';
+  int n = str.length();
+  char ch = str[n - 1];
+  int idx = str[n - 1] - 'a';
+  str = str.substr(0, n - 1);
   if (map[idx] == false) // not added in ans
   {
     map[idx] = true;
-    return removeString(str, ans + str[i], i + 1, map);
+    return removeString(str, ch + ans, map);
   }
   else
   {
-    return removeString(str, ans, i + 1, map); // duplicate character
+    return removeString(str, ans, map); // duplicate character
   }
 }
 int main()
 {
   string str = "aaaaannkkussaaaeeaashhhhhh";
   bool map[26] = {false};
-  cout << removeString(str, "", 0, map);
+  cout << removeString(str, "", map);
   return 0;
 }

@@ -96,17 +96,69 @@ int setbit(int n)
   }
   return count;
 }
+int gcd(int n, int m)
+{
+  int minVal = min(n, m);
+  int gcdVal = 1;
+  for (int i = 2; i <= minVal; i++)
+  {
+    if (n % i == 0 && m % i == 0)
+    {
+      gcdVal = i;
+    }
+  }
+  return gcdVal;
+}
+int gcdMethod2(int n, int m)
+{
+  while (m != 0)
+  {
+    int rem = n % m;
+    n = m;
+    m = rem;
+  }
+  return n;
+}
+void ReverseString(string name)
+{
+  reverse(name.begin(), name.end());
+  int j = 0;
+  for (int i = 0; i < name.length(); i++)
+  {
+    if (name[i] == ' ')
+    {
+      reverse(name.begin() + j, name.begin() + i);
+      j = i + 1;
+    }
+    if (i == name.length() - 1)
+    {
+      reverse(name.begin() + j, name.begin() + i + 1);
+    }
+  }
+  cout << name << endl;
+}
+int sum(int n){
+  if(n==0){
+    return 0;
+  }
+  return n + sum(n - 1);
+}
 int main()
 {
   int arr[3][3] = {{1, 7, 6}, {7, 7, 2}, {6, 4, 7}};
   // NumOfSeven(arr);
   // sumOfRowTwo(arr, 3);
   string s = "anagram";
-  string t = "nagaram";
-  // cout << validAnagram(s, t) << endl;
-  vector<int> nums = {-1, 0, 1, 2, -1, -4};
-  // threesum(nums);
-  int n = 10;
-  cout << setbit(n);
+  // string t = "nagaram";
+  // // cout << validAnagram(s, t) << endl;
+  // vector<int> nums = {-1, 0, 1, 2, -1, -4};
+  // // threesum(nums);
+  // int n = 10;
+  // cout << setbit(n);
+
+  // cout << gcd(4, 8) << endl;
+  // cout << gcdMethod2(4, 8) << endl;
+  // ReverseString("the sky is blue");
+cout<<sum(5)<<endl;
   return 0;
 }

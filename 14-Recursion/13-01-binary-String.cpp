@@ -41,6 +41,6 @@ int main()
   string ans = "";
   binaryString(2, 0, ans);
   cout << endl;
-  binaryString2(2, ans);
+  binaryString2(3, ans);
   return 0;
 }

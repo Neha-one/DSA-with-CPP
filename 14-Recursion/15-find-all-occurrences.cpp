@@ -11,7 +11,6 @@ vector<int> findAllOccurance(vector<int> arr, int i, int key, vector<int> ans)
   if (arr[i] == key)
   {
     ans.push_back(i);
-    return findAllOccurance(arr, i + 1, key, ans);
   }
   return findAllOccurance(arr, i + 1, key, ans);
 }

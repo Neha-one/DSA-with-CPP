@@ -1,19 +1,45 @@
 #include <iostream>
 using namespace std;
-int countGoodNum(int n, int i, int count)
+//------method 01-----for small n-----------
+int countGoodNum(int n, int count)
 {
-  if (to_string(i).length() > n)
+  for (int i = 0; i < n; i++)
   {
-    return count;
+    if (i % 2 == 0)
+    {
+      count *= 5;
+    }
+    else
+      count *= 4;
   }
-  if (i & 1)
+  return count;
+}
+//---------method 02------for LC and for large n-----------
+long long power(long long x, long long p, long long ans)
+{
+  if (p == 0)
+    return ans;
+
+  if (p & 1)
   {
-    return countGoodNum(n, i + 1, count);
+    ans = (ans * x) % 1000000007;
   }
-  return countGoodNum(n, i + 1, count + 1);
+
+  x = (x * x) % 1000000007;
+
+  return power(x, p >> 1, ans);
+}
+
+int countGoodNum1(long long n)
+{
+  long long even = (n + 1) / 2;
+  long long odd = n / 2;
+
+  return (power(5, even, 1) * power(4, odd, 1)) % 1000000007;
 }
 int main()
 {
-  cout << countGoodNum(2, 0, 0);
+  // cout << countGoodNum(1, 1);
+  cout << countGoodNum1(1);
   return 0;
 }

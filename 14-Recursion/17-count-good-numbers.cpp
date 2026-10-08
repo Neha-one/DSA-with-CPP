@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-//------method 01-----for small n-----------
+//------method 01-----for small n-----------using loop
 int countGoodNum(int n, int count)
 {
   for (int i = 0; i < n; i++)
@@ -14,7 +14,22 @@ int countGoodNum(int n, int count)
   }
   return count;
 }
-//---------method 02------for LC and for large n-----------
+
+//------method 02-----for small n-----------using recursion
+int countGoodNum1(int n, int i, int count)
+{
+  if (i == n)
+  {
+    return count;
+  }
+  if (i % 2 == 0)
+  {
+    return countGoodNum1(n, i + 1, count * 5);
+  }
+  else
+    return countGoodNum1(n, i + 1, count * 4);
+}
+//---------method 03------for LC and for large n-----------
 long long power(long long x, long long p, long long ans)
 {
   if (p == 0)
@@ -30,7 +45,7 @@ long long power(long long x, long long p, long long ans)
   return power(x, p >> 1, ans);
 }
 
-int countGoodNum1(long long n)
+int countGoodNum2(long long n)
 {
   long long even = (n + 1) / 2;
   long long odd = n / 2;
@@ -39,7 +54,8 @@ int countGoodNum1(long long n)
 }
 int main()
 {
-  // cout << countGoodNum(1, 1);
-  cout << countGoodNum1(1);
+  cout << countGoodNum(1, 1) << endl;
+  cout << countGoodNum1(2, 0, 1) << endl;
+  cout << countGoodNum2(1);
   return 0;
 }

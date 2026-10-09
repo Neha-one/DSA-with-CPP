@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 void printArr(int arr[], int n)
 {
@@ -84,6 +86,67 @@ void bubbleSort(int arr[], int n)
   }
   printArr(arr, n);
 }
+void merge(int arr[], int s, int e, int mid)
+{
+  int i = s;
+  int j = mid + 1;
+  vector<int> temp;
+  while (i <= mid && j <= e)
+  {
+    if (arr[i] > arr[j])
+    {
+      temp.push_back(arr[i++]);
+    }
+    else
+      temp.push_back(arr[j++]);
+  }
+  while (i <= mid)
+  {
+    temp.push_back(arr[i++]);
+  }
+  while (j <= e)
+  {
+    temp.push_back(arr[j++]);
+  }
+  // copy temp to original
+  for (int i = s, x = 0; i <= e; i++)
+  {
+    arr[i] = temp[x++];
+  }
+}
+void mergeSort(int arr[], int s, int e)
+{
+  if (s >= e)
+    return;
+  int mid = s + (e - s) / 2;
+  mergeSort(arr, s, mid);
+  mergeSort(arr, mid + 1, e);
+  merge(arr, s, e, mid);
+}
+int partition(int arr[], int s, int e)
+{
+  int i = s - 1;
+  int pivot = arr[e];
+  for (int j = s; j < e; j++)
+  {
+    if (arr[j] > pivot)
+    {
+      i++;
+      swap(arr[i], arr[j]);
+    }
+  }
+  i++;
+  swap(arr[i], arr[e]);
+  return i;
+}
+void quickSort(int arr[], int s, int e)
+{
+  if (s >= e)
+    return;
+  int pivotIdx = partition(arr, s, e);
+  quickSort(arr, s, pivotIdx - 1);
+  quickSort(arr, pivotIdx + 1, e);
+}
 int main()
 {
   int arr[] = {3, 6, 2, 1, 8, 7, 4, 5, 3, 1};
@@ -99,5 +162,13 @@ int main()
   cout << endl;
   cout << "Insertion sort: ";
   insertionSort(arr, n);
+  cout << endl;
+  cout << "Merge sort: ";
+  mergeSort(arr, 0, n - 1);
+  printArr(arr, n);
+  cout << endl;
+  cout << "Quick sort: ";
+  quickSort(arr, 0, n - 1);
+  printArr(arr, n);
   return 0;
 }

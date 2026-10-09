@@ -137,8 +137,10 @@ void ReverseString(string name)
   }
   cout << name << endl;
 }
-int sum(int n){
-  if(n==0){
+int sum(int n)
+{
+  if (n == 0)
+  {
     return 0;
   }
   return n + sum(n - 1);
@@ -159,6 +161,16 @@ int main()
   // cout << gcd(4, 8) << endl;
   // cout << gcdMethod2(4, 8) << endl;
   // ReverseString("the sky is blue");
-cout<<sum(5)<<endl;
+  // cout<<sum(5)<<endl;
+  string n = "neha";
+  string m = "neha";
+  if (n == m)
+  {
+    cout << "yes";
+  }
+  else
+  {
+    cout << "N0";
+  }
   return 0;
 }

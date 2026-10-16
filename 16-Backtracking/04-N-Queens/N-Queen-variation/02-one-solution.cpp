@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 using namespace std;
-void printBoard(vector<vector<char>> board)
+void printBoard(vector<vector<char>>& board)
 {
   int n = board.size();
   for (int i = 0; i < n; i++)
@@ -15,7 +15,7 @@ void printBoard(vector<vector<char>> board)
   }
   cout << "------------------------" << endl;
 }
-bool isSafe(vector<vector<char>> board, int row, int col)
+bool isSafe(vector<vector<char>>& board, int row, int col)
 {
   // horizontal -------
   int n = board.size();
@@ -44,12 +44,11 @@ bool isSafe(vector<vector<char>> board, int row, int col)
   }
   return true;
 }
-bool nQueens(vector<vector<char>> board, int row)
+bool nQueens(vector<vector<char>>& board, int row)
 {
   int n = board.size();
   if (row == n)
   {
-    printBoard(board);
     return true;
   }
   for (int j = 0; j < n; j++)
@@ -79,6 +78,9 @@ int main()
     }
     board.push_back(newRow);
   }
-  nQueens(board, 0);
+  if (nQueens(board, 0))
+  {
+    printBoard(board);
+  }
   return 0;
 }

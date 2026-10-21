@@ -31,21 +31,20 @@ public:
     }
     else
     {
-      head = newNode;
+      tail->next = newNode;
+      tail = newNode;
     }
-    newNode->next = head;
-    head = newNode;
   }
   void printList()
   {
     print(head);
   }
-  void print(Node *head)
+  void print(Node *temp)
   {
-    if (head == NULL)
+    if (temp == NULL)
       return;
-    cout << head->data << endl;
-    print(head->next);
+    cout << temp->data << endl;
+    print(temp->next);
   }
 };
 int main()

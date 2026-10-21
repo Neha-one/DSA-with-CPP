@@ -10,12 +10,12 @@ public:
     this->data = data;
     this->next = NULL;
   }
-  void print(Node *head)
+  void print(Node *temp)
   {
-    if (head == NULL)
+    if (temp == NULL)
       return;
-    cout << head->data << " ";
-    print(head->next);
+    cout << temp->data << " ";
+    print(temp->next);
   }
 };
 int main()

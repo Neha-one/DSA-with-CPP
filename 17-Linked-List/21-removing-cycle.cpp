@@ -35,8 +35,9 @@ public:
       tail = newNode;
     }
   }
-  void removingCycle()
+  void removeCycle()
   {
+    bool isCycle = false;
     Node *slow = head;
     Node *fast = head;
     while (fast != NULL && fast->next != NULL)
@@ -45,15 +46,28 @@ public:
       fast = fast->next->next;
       if (slow == fast)
       {
-        slow = head;
+        isCycle = true;
+        break;
       }
-      while (fast->next != slow)
-      {
-        fast = fast->next;
-        slow = slow->next;
-      }
-      fast->next = NULL;
     }
+    if (!isCycle)
+      return;
+
+    slow = head;
+    if (slow == fast)
+    {
+      while (fast->next != slow)
+        fast = fast->next;
+    }
+    else
+    {
+      while (fast->next != slow->next)
+      {
+        slow = slow->next;
+        fast = fast->next;
+      }
+    }
+    fast->next = NULL;
   }
   void printList()
   {
@@ -61,7 +75,6 @@ public:
   }
   void print(Node *temp)
   {
-
     if (temp == NULL)
     {
       return;
@@ -78,7 +91,7 @@ int main()
   ll.push_back(6);
   ll.push_back(8);
   ll.tail->next = ll.head;
-  ll.removingCycle();
+  ll.removeCycle();
   ll.printList();
   return 0;
 }

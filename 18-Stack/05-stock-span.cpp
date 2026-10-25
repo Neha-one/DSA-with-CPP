@@ -33,8 +33,10 @@ void stockSpan(vector<int> &stock, vector<int> &span)
 }
 int main()
 {
-  vector<int> stock = {100, 80, 60, 70, 60, 85, 100};
-  vector<int> span = {0, 0, 0, 0, 0, 0, 0};
+  // vector<int> stock = {100, 80, 60, 70, 60, 85, 100};
+  vector<int> stock = {100, 90, 80, 79, 60, 50};
+  // vector<int> stock = {10, 30, 40, 50, 60, 85, 100};
+  vector<int> span = {0, 0, 0, 0, 0, 0};
   stockSpan(stock, span);
   return 0;
 }

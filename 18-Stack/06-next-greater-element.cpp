@@ -20,7 +20,7 @@ void nextGreater(vector<int> &arr, vector<int> &ans)
     {
       ans[i] = s.top();
     }
-    s.push(i);
+    s.push(arr[i]);
   }
   for (int i = 0; i < ans.size(); i++)
   {
@@ -30,7 +30,9 @@ void nextGreater(vector<int> &arr, vector<int> &ans)
 }
 int main()
 {
-  vector<int> arr = {6, 8, 0, 1, 3};
+  vector<int> arr = {6, 8, 0, 1, 3}; //{ 8 -1 1 3 -1}
+  // vector<int> arr = {9, 8, 7, 6, 3}; //{ -1 -1 -1 -1 -1}
+  // vector<int> arr = {2, 3, 45, 66, 77}; //{ 3 45 66 77 -1}
   vector<int> ans = {0, 0, 0, 0, 0};
   nextGreater(arr, ans);
   return 0;

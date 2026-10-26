@@ -145,6 +145,42 @@ int sum(int n)
   }
   return n + sum(n - 1);
 }
+bool primeNum(int n)
+{
+  if (n <= 1)
+  {
+    return false;
+  }
+  for (int i = 2; i < n; i++)
+  {
+    if (n % i == 0)
+    {
+      return false;
+    }
+  }
+  return true;
+}
+void permutation(string str)
+{
+  int n = str.length();
+  int x = 1;
+  while (x < n)
+  {
+    int j = 1;
+    int i = 0;
+    while (i < n - 1)
+    {
+      reverse(str.begin() + i, str.begin() + j + 1);
+      cout << str << " ";
+      j++;
+      i++;
+    }
+    reverse(str.begin(), str.end());
+    cout << str << " ";
+    x++;
+  }
+}
+
 int main()
 {
   int arr[3][3] = {{1, 7, 6}, {7, 7, 2}, {6, 4, 7}};
@@ -162,15 +198,41 @@ int main()
   // cout << gcdMethod2(4, 8) << endl;
   // ReverseString("the sky is blue");
   // cout<<sum(5)<<endl;
-  string n = "neha";
-  string m = "neha";
-  if (n == m)
-  {
-    cout << "yes";
-  }
-  else
-  {
-    cout << "N0";
-  }
+  // string n = "neha";
+  // string m = "neha";
+  // if (n == m)
+  // {
+  //   cout << "yes";
+  // }
+  // else
+  // {
+  //   cout << "N0";
+  // }
+  // cout << primeNum(2);
+  // string str = "abcd";
+  // permutation(str);
+  //---------------
+  // vector<vector<string>> board;
+  // for (int i = 0; i < 4; i++)
+  // {
+  //   vector<string> newRow;
+  //   for (int j = 0; j < 4; j++)
+  //   {
+  //     newRow.push_back(".");
+  //   }
+  //   board.push_back(newRow);
+  // }
+  // for (int i = 0; i < 4; i++)
+  // {
+  //   for (int j = 0; j < 4; j++)
+  //   {
+  //     cout << board[i][j];
+  //   }
+  //   cout << endl;
+  // }
+  int a = 5;
+  int *ptr = &a;
+  int **pptr = &ptr;
+  cout << *pptr << "=" << ptr << "=" << &a << " ";
   return 0;
 }
